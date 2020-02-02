@@ -1,4 +1,5 @@
 import React ,{Fragment, useState}from 'react';
+import Error from './Error';
 
 
 
@@ -6,6 +7,7 @@ const Pregunta = () => {
 
     //Definir el State
     const [cantidad, guardarCantidad] = useState(0);
+    const [error, guardarError] = useState(false);
 
 // funcion para leer presupuesto 
 // para tener acceso a los valores se le "e" para tener acceso a .target y .value .name
@@ -22,13 +24,24 @@ const Pregunta = () => {
 
     // Validar
 
-    // si pasa la Validacion     
+    if (cantidad < 1 || isNaN(cantidad)) {
+        guardarError(true);
+        return;
+    }
+
+    // si pasa la Validacion 
+    guardarError(false);
+    
     }
 
     return ( 
      <Fragment>
 
         <h2>Coloca  tu Presupuesto</h2>
+
+        {/* Error es el nuevo components creado. y mensaje es el Prop */}
+        {error ? <Error mensaje="El Presupuesto es Incorrecto"/> : null}
+
         <form
             onSubmit={agregarPresupuesto}
         >
