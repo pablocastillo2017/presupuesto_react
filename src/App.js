@@ -17,6 +17,10 @@ function App() {
             <h1>Gasto Semanal</h1>
 
             <div className="contenido-principal contenido">
+  
+  {/* Esto se le conoce como 'Carga condicional de un componente
+  ' con un ternario si se cumple "?" se ejecuta "Pregunta"
+  sino se cumple ":" se ejecuta Formulario*/}
               { mostrarpregunta ?  
                 ( 
                   <Pregunta 
