@@ -3,7 +3,7 @@ import Error from './Error';
 
 
 
-const Pregunta = () => {
+const Pregunta = ({guardarPresupuesto,guardarRestante}) => {
 
     //Definir el State
     const [cantidad, guardarCantidad] = useState(0);
@@ -31,6 +31,8 @@ const Pregunta = () => {
 
     // si pasa la Validacion 
     guardarError(false);
+    guardarPresupuesto(cantidad);
+    guardarRestante(cantidad);
     
     }
 

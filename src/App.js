@@ -1,7 +1,15 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import Pregunta from './components/Pregunta';
+import Formulario from './components/Formulario';
+
 
 function App() {
+
+  // Definir los  States 
+const [presupuesto, guardarPresupuesto] = useState(0);
+const [restante, guardarRestante] = useState(0);
+
+
   return (
     <div className="container">
       <header>
@@ -9,9 +17,25 @@ function App() {
      
      <div className="contenido-principal contenido">
 
-      <Pregunta/>
+      <Pregunta
 
+        guardarPresupuesto={guardarPresupuesto}
+        guardarRestante ={guardarRestante}
+
+      />
+      <div className="row">
+          <div className="one-half column">
+            <Formulario
+              
+            />
+          </div>
+          <div className="one-half column">
+            2
+          </div>
+      </div>
      </div>
+
+
 
       
 
